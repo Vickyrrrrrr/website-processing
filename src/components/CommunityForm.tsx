@@ -61,14 +61,24 @@ const CommunityForm: React.FC = () => {
     setError('');
     
     try {
-      // Send data to Google Sheets via Apps Script
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxYIw3bPpIyUFVcyttEC85GaPvyZrrpBVhHsamBUx2gkdg-eg1G13pr09qXqu-pyAQ/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+      // Create FormData object for Google Apps Script
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbxYIw3bPpIyUFVcyttEC85GaPvyZrrpBVhHsamBUx2gkdg-eg1G13pr09qXqu-pyAQ/exec';
+      
+      // Create URL parameters
+      const params = new URLSearchParams();
+      params.append('name', formData.name);
+      params.append('email', formData.email);
+      params.append('year', formData.year);
+      params.append('branch', formData.branch);
+      params.append('interests', formData.interests.join(', '));
+      params.append('experience', formData.experience);
+      params.append('commitment', formData.commitment);
+      params.append('ideas', formData.ideas);
+
+      // Send as GET request (Google Apps Script handles this better)
+      await fetch(`${scriptUrl}?${params.toString()}`, {
+        method: 'GET',
+        mode: 'no-cors'
       });
 
       // Show success message
