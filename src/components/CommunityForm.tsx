@@ -133,15 +133,15 @@ const CommunityForm: React.FC = () => {
   return (
     <div className="max-w-2xl mx-auto">
       {submitted ? (
-        <div className="bg-green-50 border-2 border-green-500 text-green-800 px-8 py-6 rounded-xl text-center">
+        <div className="bg-[#1d1836] border-2 border-[#915EFF] text-white px-8 py-6 rounded-xl text-center shadow-xl shadow-[#211e35]">
           <div className="text-4xl mb-3">✅</div>
           <h3 className="text-2xl font-bold mb-2">You're In!</h3>
-          <p className="text-lg">Thanks for joining our creative community. We'll be in touch soon with next steps.</p>
+          <p className="text-lg text-[#aaa6c3]">Thanks for joining our creative community. We'll be in touch soon with next steps.</p>
         </div>
       ) : (
         <>
           {error && (
-            <div className="bg-red-50 border-2 border-red-500 text-red-800 px-6 py-4 rounded-lg mb-6">
+            <div className="bg-red-900/20 border-2 border-red-500 text-red-400 px-6 py-4 rounded-lg mb-6">
               {error}
             </div>
           )}
@@ -149,7 +149,7 @@ const CommunityForm: React.FC = () => {
           {/* Name & Email Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-900">
+              <label htmlFor="name" className="block text-sm font-semibold mb-2 text-white">
                 Full Name *
               </label>
               <input
@@ -159,13 +159,13 @@ const CommunityForm: React.FC = () => {
                 required
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:border-green-500 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-[#915EFF]/20 bg-[#1d1836] text-white focus:outline-none focus:border-[#915EFF] transition-colors placeholder:text-[#aaa6c3]/50"
                 placeholder="Your name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-900">
+              <label htmlFor="email" className="block text-sm font-semibold mb-2 text-white">
                 Email *
               </label>
               <input
@@ -175,7 +175,7 @@ const CommunityForm: React.FC = () => {
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:border-green-500 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-[#915EFF]/20 bg-[#1d1836] text-white focus:outline-none focus:border-[#915EFF] transition-colors placeholder:text-[#aaa6c3]/50"
                 placeholder="you@email.com"
               />
             </div>
@@ -184,7 +184,7 @@ const CommunityForm: React.FC = () => {
           {/* Year & Department Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="year" className="block text-sm font-semibold mb-2 text-gray-900">
+              <label htmlFor="year" className="block text-sm font-semibold mb-2 text-white">
                 Year *
               </label>
               <select
@@ -193,19 +193,19 @@ const CommunityForm: React.FC = () => {
                 required
                 value={formData.year}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:border-green-500 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-[#915EFF]/20 bg-[#1d1836] text-white focus:outline-none focus:border-[#915EFF] transition-colors"
               >
-                <option value="">Select year</option>
-                <option value="1st Year">1st Year</option>
-                <option value="2nd Year">2nd Year</option>
-                <option value="3rd Year">3rd Year</option>
-                <option value="4th Year">4th Year</option>
-                <option value="Postgraduate">Postgraduate</option>
+                <option value="" className="bg-[#1d1836]">Select year</option>
+                <option value="1st Year" className="bg-[#1d1836]">1st Year</option>
+                <option value="2nd Year" className="bg-[#1d1836]">2nd Year</option>
+                <option value="3rd Year" className="bg-[#1d1836]">3rd Year</option>
+                <option value="4th Year" className="bg-[#1d1836]">4th Year</option>
+                <option value="Postgraduate" className="bg-[#1d1836]">Postgraduate</option>
               </select>
             </div>
 
             <div>
-              <label htmlFor="branch" className="block text-sm font-semibold mb-2 text-gray-900">
+              <label htmlFor="branch" className="block text-sm font-semibold mb-2 text-white">
                 Department *
               </label>
               <input
@@ -215,7 +215,7 @@ const CommunityForm: React.FC = () => {
                 required
                 value={formData.branch}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:border-green-500 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-[#915EFF]/20 bg-[#1d1836] text-white focus:outline-none focus:border-[#915EFF] transition-colors placeholder:text-[#aaa6c3]/50"
                 placeholder="e.g., Computer Science"
               />
             </div>
@@ -223,19 +223,19 @@ const CommunityForm: React.FC = () => {
 
           {/* Interests */}
           <div>
-            <label className="block text-sm font-semibold mb-3 text-gray-900">
+            <label className="block text-sm font-semibold mb-3 text-white">
               Your Interests *
             </label>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {interestOptions.map(interest => (
-                <label key={interest} className="flex items-center space-x-2 cursor-pointer bg-gray-50 px-3 py-2 rounded-lg hover:bg-green-50 transition-colors">
+                <label key={interest} className="flex items-center space-x-2 cursor-pointer bg-[#1d1836] px-3 py-2 rounded-lg hover:bg-[#915EFF]/10 hover:border-[#915EFF]/50 border-2 border-transparent transition-all">
                   <input
                     type="checkbox"
                     checked={formData.interests.includes(interest)}
                     onChange={() => handleCheckboxChange(interest)}
-                    className="w-4 h-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                    className="w-4 h-4 text-[#915EFF] focus:ring-[#915EFF] border-[#915EFF]/30 rounded"
                   />
-                  <span className="text-sm font-medium">{interest}</span>
+                  <span className="text-sm font-medium text-[#aaa6c3]">{interest}</span>
                 </label>
               ))}
             </div>
@@ -244,7 +244,7 @@ const CommunityForm: React.FC = () => {
           {/* Experience & Commitment Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="experience" className="block text-sm font-semibold mb-2 text-gray-900">
+              <label htmlFor="experience" className="block text-sm font-semibold mb-2 text-white">
                 Experience Level
               </label>
               <select
@@ -252,18 +252,18 @@ const CommunityForm: React.FC = () => {
                 name="experience"
                 value={formData.experience}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:border-green-500 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-[#915EFF]/20 bg-[#1d1836] text-white focus:outline-none focus:border-[#915EFF] transition-colors"
               >
-                <option value="">Select level</option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Experienced">Experienced</option>
-                <option value="Advanced">Advanced</option>
+                <option value="" className="bg-[#1d1836]">Select level</option>
+                <option value="Beginner" className="bg-[#1d1836]">Beginner</option>
+                <option value="Intermediate" className="bg-[#1d1836]">Intermediate</option>
+                <option value="Experienced" className="bg-[#1d1836]">Experienced</option>
+                <option value="Advanced" className="bg-[#1d1836]">Advanced</option>
               </select>
             </div>
 
             <div>
-              <label htmlFor="commitment" className="block text-sm font-semibold mb-2 text-gray-900">
+              <label htmlFor="commitment" className="block text-sm font-semibold mb-2 text-white">
                 Availability
               </label>
               <select
@@ -271,20 +271,20 @@ const CommunityForm: React.FC = () => {
                 name="commitment"
                 value={formData.commitment}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:border-green-500 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-[#915EFF]/20 bg-[#1d1836] text-white focus:outline-none focus:border-[#915EFF] transition-colors"
               >
-                <option value="">Select option</option>
-                <option value="Stay informed">Just stay informed</option>
-                <option value="Casual">Casual (1-2 hrs/week)</option>
-                <option value="Active">Active (3-5 hrs/week)</option>
-                <option value="Very involved">Very involved (5+ hrs/week)</option>
+                <option value="" className="bg-[#1d1836]">Select option</option>
+                <option value="Stay informed" className="bg-[#1d1836]">Just stay informed</option>
+                <option value="Casual" className="bg-[#1d1836]">Casual (1-2 hrs/week)</option>
+                <option value="Active" className="bg-[#1d1836]">Active (3-5 hrs/week)</option>
+                <option value="Very involved" className="bg-[#1d1836]">Very involved (5+ hrs/week)</option>
               </select>
             </div>
           </div>
 
           {/* Ideas */}
           <div>
-            <label htmlFor="ideas" className="block text-sm font-semibold mb-2 text-gray-900">
+            <label htmlFor="ideas" className="block text-sm font-semibold mb-2 text-white">
               Your Ideas & Suggestions
             </label>
             <textarea
@@ -293,7 +293,7 @@ const CommunityForm: React.FC = () => {
               rows={4}
               value={formData.ideas}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:border-green-500 transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-lg border-2 border-[#915EFF]/20 bg-[#1d1836] text-white focus:outline-none focus:border-[#915EFF] transition-colors resize-none placeholder:text-[#aaa6c3]/50"
               placeholder="What would you like to see in this community?"
             />
           </div>
@@ -303,11 +303,12 @@ const CommunityForm: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-green-600 to-emerald-500 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-emerald-600 transition-all duration-300 transform hover:scale-[1.02] shadow-lg text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-[#211e35] text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-white"
+              style={{background: isSubmitting ? '#915EFF80' : 'linear-gradient(90.13deg, #915EFF 1.9%, #bf61ff 97.5%)'}}
             >
               {isSubmitting ? 'Submitting...' : 'Join the Community'}
             </button>
-            <p className="text-center text-sm text-gray-500 mt-4">
+            <p className="text-center text-sm text-[#aaa6c3] mt-4">
               Free forever. No credit card required.
             </p>
           </div>

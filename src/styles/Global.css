@@ -4,59 +4,87 @@
 
 @import "react-multi-carousel/lib/styles.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @theme {
-    --color-header: #080b12;
-    --color-body: #040509;
-    --color-footer: #080b12;
+    /* Portfolio Dark Theme - Primary Colors */
+    --color-primary: #050816;
+    --color-secondary: #aaa6c3;
+    --color-tertiary: #151030;
+    --color-violet: #915EFF;
+    --color-violet-dark: #804dee;
+    
+    /* Backgrounds */
+    --color-header: #050816;
+    --color-body: #050816;
+    --color-footer: #050816;
+    
+    --color-black-100: #100d25;
+    --color-black-200: #090325;
+    --color-white-100: #f3f3f3;
 
     --breakpoint-xs: 30rem;
     --breakpoint-3xl: 125rem;
 
-    --color-menu-1: #06070b;
+    --color-menu-1: #151030;
 
-    --color-text-default: #D4D4D4;
+    /* Text Colors - Portfolio Style */
+    --color-text-default: #aaa6c3;
     --color-text-primary: #FFFFFF;
+    --color-text-hero: #dfd9ff;
 
-    --color-special-0: #5577f0;
-    --color-special-1: #4f70e7;
-    --color-special-2: #6286ff;
-    --color-special-3: #c2481d;
+    /* Accent Colors */
+    --color-special-0: #915EFF;
+    --color-special-1: #804dee;
+    --color-special-2: #bf61ff;
+    --color-special-3: #00cea8;
 
-    --color-star: #c2bc00;
-    --color-star-2: #b3ae00;
+    --color-star: #f272c8;
+    --color-star-2: #bf61ff;
 
-    --color-success: #008236;
-    --color-success-2: #2a974a;
+    /* Success Colors - Green Gradient */
+    --color-success: #16A34A;
+    --color-success-2: #10B981;
     --color-success-3: #6dd383;
 
-    --color-border-primary: #363B59;
-    --color-border-secondary: #282c42;
-    --color-border-selected: #c66bd5;
+    --color-border-primary: #211e35;
+    --color-border-secondary: #151030;
+    --color-border-selected: #915EFF;
 
-    --color-item: #0b0f18;
-    --color-item-primary: #3A4F7E;
-    --color-item-secondary: #334770;
-    --color-item-hover: #131A2A;
+    --color-item: #151030;
+    --color-item-primary: #1d1836;
+    --color-item-secondary: #100d25;
+    --color-item-hover: #211e35;
 
-    --color-btn-primary: #10151f;
-    --color-btn-primary-hover: #181f2f;
-    --color-btn-primary-ring: #868FC1;
-    --color-btn-primary-ring-hover: #939BC8;
+    /* Button Colors - Violet Theme */
+    --color-btn-primary: #151030;
+    --color-btn-primary-hover: #1d1836;
+    --color-btn-primary-ring: #915EFF;
+    --color-btn-primary-ring-hover: #bf61ff;
 
-    --color-btn-secondary: #10151f;
-    --color-btn-secondary-hover: #1c1f28;
-    --color-btn-secondary-ring: #868FC1;
-    --color-btn-secondary-ring-hover: #939BC8;
+    --color-btn-secondary: #100d25;
+    --color-btn-secondary-hover: #151030;
+    --color-btn-secondary-ring: #804dee;
+    --color-btn-secondary-ring-hover: #915EFF;
 
-    --color-btn-warning: #000000;
-    --color-btn-warning-hover: #000000;
-    --color-btn-warning-ring: #000000;
-    --color-btn-warning-ring-hover: #000000;
+    --color-btn-warning: #915EFF;
+    --color-btn-warning-hover: #bf61ff;
+    --color-btn-warning-ring: #804dee;
+    --color-btn-warning-ring-hover: #915EFF;
 
     --color-btn-danger: #c2481d;
     --color-btn-danger-hover: #CF542B;
-    --color-btn-danger-ring: #000000;
-    --color-btn-danger-ring-hover: #000000;
+    --color-btn-danger-ring: #915EFF;
+    --color-btn-danger-ring-hover: #bf61ff;
+    
+    /* Gradients */
+    --gradient-violet: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+    --gradient-green-pink: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 @import "./Base.css";
