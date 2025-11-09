@@ -63,8 +63,20 @@ const CommunityForm: React.FC = () => {
     try {
       const scriptUrl = 'https://script.google.com/macros/s/AKfycbxYIw3bPpIyUFVcyttEC85GaPvyZrrpBVhHsamBUx2gkdg-eg1G13pr09qXqu-pyAQ/exec';
       
-      // Create form data as URL encoded
-      const formBody = new URLSearchParams({
+      // Create a hidden iframe to submit the form
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.name = 'hidden_iframe';
+      document.body.appendChild(iframe);
+      
+      // Create a form element
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = scriptUrl;
+      form.target = 'hidden_iframe';
+      
+      // Add form fields
+      const fields = {
         name: formData.name,
         email: formData.email,
         year: formData.year,
@@ -73,14 +85,24 @@ const CommunityForm: React.FC = () => {
         experience: formData.experience,
         commitment: formData.commitment,
         ideas: formData.ideas
+      };
+      
+      Object.keys(fields).forEach(key => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = fields[key as keyof typeof fields];
+        form.appendChild(input);
       });
-
-      // Send as POST with form data
-      const response = await fetch(scriptUrl, {
-        method: 'POST',
-        body: formBody,
-        redirect: 'follow'
-      });
+      
+      document.body.appendChild(form);
+      form.submit();
+      
+      // Clean up after 1 second
+      setTimeout(() => {
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+      }, 1000);
 
       // Show success message
       setSubmitted(true);
