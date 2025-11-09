@@ -61,24 +61,25 @@ const CommunityForm: React.FC = () => {
     setError('');
     
     try {
-      // Create FormData object for Google Apps Script
       const scriptUrl = 'https://script.google.com/macros/s/AKfycbxYIw3bPpIyUFVcyttEC85GaPvyZrrpBVhHsamBUx2gkdg-eg1G13pr09qXqu-pyAQ/exec';
       
-      // Create URL parameters
-      const params = new URLSearchParams();
-      params.append('name', formData.name);
-      params.append('email', formData.email);
-      params.append('year', formData.year);
-      params.append('branch', formData.branch);
-      params.append('interests', formData.interests.join(', '));
-      params.append('experience', formData.experience);
-      params.append('commitment', formData.commitment);
-      params.append('ideas', formData.ideas);
+      // Create form data as URL encoded
+      const formBody = new URLSearchParams({
+        name: formData.name,
+        email: formData.email,
+        year: formData.year,
+        branch: formData.branch,
+        interests: formData.interests.join(', '),
+        experience: formData.experience,
+        commitment: formData.commitment,
+        ideas: formData.ideas
+      });
 
-      // Send as GET request (Google Apps Script handles this better)
-      await fetch(`${scriptUrl}?${params.toString()}`, {
-        method: 'GET',
-        mode: 'no-cors'
+      // Send as POST with form data
+      const response = await fetch(scriptUrl, {
+        method: 'POST',
+        body: formBody,
+        redirect: 'follow'
       });
 
       // Show success message
