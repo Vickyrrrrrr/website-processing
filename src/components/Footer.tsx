@@ -62,9 +62,15 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-[#915EFF]/20 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-[#aaa6c3] text-sm">
-                            © 2025 Creative Community. All rights reserved.
-                        </p>
+                        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+                            <p className="text-[#aaa6c3] text-sm">
+                                © 2025 Creative Community. All rights reserved.
+                            </p>
+                            <span className="hidden md:inline text-[#915EFF]/30">•</span>
+                            <p className="text-[#aaa6c3] text-sm">
+                                Created by <a href="https://github.com/Vickyrrrrrr" target="_blank" rel="noopener noreferrer" className="text-[#915EFF] hover:underline font-semibold">Vicky</a>
+                            </p>
+                        </div>
                         <div className="flex gap-6 text-sm">
                             <a href="#" className="text-[#aaa6c3] hover:text-[#915EFF] transition-colors">
                                 Privacy
