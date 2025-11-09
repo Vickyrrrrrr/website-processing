@@ -9,7 +9,6 @@ interface FormData {
   experience: string;
   ideas: string;
   commitment: string;
-  otherThoughts: string;
 }
 
 const CommunityForm: React.FC = () => {
@@ -21,8 +20,7 @@ const CommunityForm: React.FC = () => {
     interests: [],
     experience: '',
     ideas: '',
-    commitment: '',
-    otherThoughts: ''
+    commitment: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -74,8 +72,7 @@ const CommunityForm: React.FC = () => {
         interests: [],
         experience: '',
         ideas: '',
-        commitment: '',
-        otherThoughts: ''
+        commitment: ''
       });
       setSubmitted(false);
     }, 3000);
