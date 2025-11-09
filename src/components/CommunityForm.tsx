@@ -24,6 +24,8 @@ const CommunityForm: React.FC = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const interestOptions = [
     'Filmmaking',
@@ -53,29 +55,46 @@ const CommunityForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
     
-    // Here you can add logic to send the form data to a backend or email
-    console.log('Form submitted:', formData);
-    
-    // For now, just show a success message
-    setSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        year: '',
-        branch: '',
-        interests: [],
-        experience: '',
-        ideas: '',
-        commitment: ''
+    try {
+      // Send data to Google Sheets via Apps Script
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxYIw3bPpIyUFVcyttEC85GaPvyZrrpBVhHsamBUx2gkdg-eg1G13pr09qXqu-pyAQ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
       });
-      setSubmitted(false);
-    }, 3000);
+
+      // Show success message
+      setSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          year: '',
+          branch: '',
+          interests: [],
+          experience: '',
+          ideas: '',
+          commitment: ''
+        });
+        setSubmitted(false);
+        setIsSubmitting(false);
+      }, 3000);
+      
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError('Something went wrong. Please try again.');
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -87,7 +106,13 @@ const CommunityForm: React.FC = () => {
           <p className="text-lg">Thanks for joining our creative community. We'll be in touch soon with next steps.</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <>
+          {error && (
+            <div className="bg-red-50 border-2 border-red-500 text-red-800 px-6 py-4 rounded-lg mb-6">
+              {error}
+            </div>
+          )}
+          <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name & Email Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -244,15 +269,17 @@ const CommunityForm: React.FC = () => {
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-green-600 to-emerald-500 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-emerald-600 transition-all duration-300 transform hover:scale-[1.02] shadow-lg text-lg"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-green-600 to-emerald-500 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-emerald-600 transition-all duration-300 transform hover:scale-[1.02] shadow-lg text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
-              Join the Community
+              {isSubmitting ? 'Submitting...' : 'Join the Community'}
             </button>
             <p className="text-center text-sm text-gray-500 mt-4">
               Free forever. No credit card required.
             </p>
           </div>
         </form>
+        </>
       )}
     </div>
   );
