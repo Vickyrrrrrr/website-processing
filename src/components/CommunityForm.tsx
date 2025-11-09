@@ -61,7 +61,7 @@ const CommunityForm: React.FC = () => {
     setError('');
     
     try {
-      const scriptUrl = 'https://script.google.com/macros/s/AKfycbxYIw3bPpIyUFVcyttEC85GaPvyZrrpBVhHsamBUx2gkdg-eg1G13pr09qXqu-pyAQ/exec';
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbx7tquuSGR3Xpv5I4HZu8Z5eoC8Kl3DBkLxGB8WX2k6Cge-H6dU1AG0HTr3FAtK_VQR/exec';
       
       // Create a hidden iframe to submit the form
       const iframe = document.createElement('iframe');
