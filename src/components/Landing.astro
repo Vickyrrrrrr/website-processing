@@ -92,29 +92,93 @@ import CommunityForm from "./CommunityForm";
     </div>
 </section>
 
-{/* Stats Section */}
+{/* 3D Showcase Section */}
 <section class="py-20 px-4 container mx-auto">
-    <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">50+</div>
-                <div class="text-gray-600">Active Members</div>
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-sm font-bold text-green-600 uppercase tracking-wide mb-3">SHOWCASE</h2>
+            <h3 class="text-4xl font-bold text-gray-900">Your Creative Journey</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="perspective: 1000px;">
+            <!-- Card 1 -->
+            <div class="h-64 relative" style="transform-style: preserve-3d; transition: transform 0.8s;">
+                <div class="absolute inset-0 rounded-xl shadow-xl" style="backface-visibility: hidden;">
+                    <div class="h-full bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">🎬</div>
+                            <h4 class="text-2xl font-bold">Filmmaking</h4>
+                            <p class="text-sm mt-2 opacity-80">(Hover to flip)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 rounded-xl shadow-xl" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                    <div class="h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center text-white p-6">
+                        <div class="text-center">
+                            <p class="text-lg">Create cinematic experiences that tell powerful stories</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">100+</div>
-                <div class="text-gray-600">Projects Created</div>
+
+            <!-- Card 2 -->
+            <div class="h-64 relative" style="transform-style: preserve-3d; transition: transform 0.8s;">
+                <div class="absolute inset-0 rounded-xl shadow-xl" style="backface-visibility: hidden;">
+                    <div class="h-full bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">📷</div>
+                            <h4 class="text-2xl font-bold">Photography</h4>
+                            <p class="text-sm mt-2 opacity-80">(Hover to flip)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 rounded-xl shadow-xl" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                    <div class="h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center text-white p-6">
+                        <div class="text-center">
+                            <p class="text-lg">Capture moments that speak a thousand words</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">20+</div>
-                <div class="text-gray-600">Workshops</div>
-            </div>
-            <div>
-                <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">Free</div>
-                <div class="text-gray-600">Always</div>
+
+            <!-- Card 3 -->
+            <div class="h-64 relative" style="transform-style: preserve-3d; transition: transform 0.8s;">
+                <div class="absolute inset-0 rounded-xl shadow-xl" style="backface-visibility: hidden;">
+                    <div class="h-full bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">✂️</div>
+                            <h4 class="text-2xl font-bold">Editing</h4>
+                            <p class="text-sm mt-2 opacity-80">(Hover to flip)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 rounded-xl shadow-xl" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                    <div class="h-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center text-white p-6">
+                        <div class="text-center">
+                            <p class="text-lg">Transform raw footage into polished masterpieces</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    // Add hover effect for 3D card flip
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('section .h-64.relative');
+        cards.forEach(card => {
+            const htmlCard = card as HTMLElement;
+            card.addEventListener('mouseenter', () => {
+                htmlCard.style.transform = 'rotateY(180deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                htmlCard.style.transform = 'rotateY(0deg)';
+            });
+        });
+    });
+</script>
 
 {/* Form Section - Simplified */}
 <section id="form" class="py-24 px-4 bg-white">
