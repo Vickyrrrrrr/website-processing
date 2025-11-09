@@ -8,13 +8,6 @@ import CommunityForm from "./CommunityForm";
 {/* Hero Section - Portfolio Dark Style */}
 <section class="relative py-32 px-4 container mx-auto bg-primary">
     <div class="max-w-5xl mx-auto text-center space-y-8">
-        <div class="flex flex-col items-center gap-5">
-            <div class="flex flex-col justify-center items-center">
-                <div class="w-5 h-5 rounded-full bg-[#915EFF]"></div>
-                <div class="w-1 h-40 sm:h-80" style="background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);"></div>
-            </div>
-        </div>
-        
         <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
             Share it. <span class="bg-gradient-to-r from-[#915EFF] to-[#bf61ff] bg-clip-text text-transparent">Create it.</span>
         </h1>
@@ -38,11 +31,69 @@ import CommunityForm from "./CommunityForm";
             </a>
         </div>
 
+        {/* Animated Stats */}
+        <div class="pt-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-[#1d1836] p-6 rounded-xl border border-[#915EFF]/20 hover:border-[#915EFF]/50 transition-all hover:shadow-lg hover:shadow-[#211e35]">
+                    <div class="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#915EFF] to-[#bf61ff] bg-clip-text text-transparent counter" data-target="100">0</div>
+                    <div class="text-[#aaa6c3] mt-2 font-semibold">Students Interested</div>
+                </div>
+                
+                <div class="bg-[#1d1836] p-6 rounded-xl border border-[#915EFF]/20 hover:border-[#915EFF]/50 transition-all hover:shadow-lg hover:shadow-[#211e35]">
+                    <div class="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#00cea8] to-[#bf61ff] bg-clip-text text-transparent counter" data-target="5">0</div>
+                    <div class="text-[#aaa6c3] mt-2 font-semibold">Creative Departments</div>
+                </div>
+                
+                <div class="bg-[#1d1836] p-6 rounded-xl border border-[#915EFF]/20 hover:border-[#915EFF]/50 transition-all hover:shadow-lg hover:shadow-[#211e35]">
+                    <div class="text-4xl md:text-5xl font-black text-[#915EFF] counter" data-target="100">0</div>
+                    <div class="text-[#aaa6c3] mt-2 font-semibold">% Free Forever</div>
+                </div>
+            </div>
+        </div>
+
         <div class="pt-8">
-            <p class="text-sm text-[#aaa6c3] mb-4">University of Lucknow Initiative</p>
+            <p class="text-sm text-[#aaa6c3] mb-4">Initiative by the students of University of Lucknow</p>
         </div>
     </div>
 </section>
+
+<script>
+    // Animated counter
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        
+        const animateCounter = (counter: Element) => {
+            const target = parseInt((counter as HTMLElement).dataset.target || '0');
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    (counter as HTMLElement).textContent = Math.floor(current).toString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    (counter as HTMLElement).textContent = target.toString();
+                }
+            };
+            
+            updateCounter();
+        };
+        
+        // Intersection Observer to trigger animation when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        counters.forEach(counter => observer.observe(counter));
+    });
+</script>
 
 {/* Features Section - Dark Purple Theme */}
 <section id="features" class="py-20 px-4 bg-[#151030]">

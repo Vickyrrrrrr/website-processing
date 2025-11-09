@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 interface FormData {
   name: string;
   email: string;
+  mobile: string;
   year: string;
   branch: string;
   interests: string[];
@@ -15,6 +16,7 @@ const CommunityForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
+    mobile: '',
     year: '',
     branch: '',
     interests: [],
@@ -79,6 +81,7 @@ const CommunityForm: React.FC = () => {
       const fields = {
         name: formData.name,
         email: formData.email,
+        mobile: formData.mobile,
         year: formData.year,
         branch: formData.branch,
         interests: formData.interests.join(', '),
@@ -112,6 +115,7 @@ const CommunityForm: React.FC = () => {
         setFormData({
           name: '',
           email: '',
+          mobile: '',
           year: '',
           branch: '',
           interests: [],
@@ -179,6 +183,24 @@ const CommunityForm: React.FC = () => {
                 placeholder="you@email.com"
               />
             </div>
+          </div>
+
+          {/* Mobile Number */}
+          <div>
+            <label htmlFor="mobile" className="block text-sm font-semibold mb-2 text-white">
+              Mobile Number *
+            </label>
+            <input
+              type="tel"
+              id="mobile"
+              name="mobile"
+              required
+              value={formData.mobile}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 rounded-lg border-2 border-[#915EFF]/20 bg-[#1d1836] text-white focus:outline-none focus:border-[#915EFF] transition-colors placeholder:text-[#aaa6c3]/50"
+              placeholder="+91 XXXXX XXXXX"
+              pattern="[0-9+\s-]+"
+            />
           </div>
 
           {/* Year & Department Row */}
@@ -308,9 +330,6 @@ const CommunityForm: React.FC = () => {
             >
               {isSubmitting ? 'Submitting...' : 'Join the Community'}
             </button>
-            <p className="text-center text-sm text-[#aaa6c3] mt-4">
-              Free forever. No credit card required.
-            </p>
           </div>
         </form>
         </>
