@@ -33,12 +33,12 @@ const {
 = meta ?? {}
 
 // Website meta settings.
-const title = titleMeta ?? import.meta.env.PUBLIC_TITLE ?? "The Modding Community"
-const titleMain = titleMainMeta ?? import.meta.env.PUBLIC_TITLE_MAIN ?? "The Modding Community"
+const title = titleMeta ?? import.meta.env.PUBLIC_TITLE ?? "Create - Creative Community at University of Lucknow"
+const titleMain = titleMainMeta ?? import.meta.env.PUBLIC_TITLE_MAIN ?? "Share it. Create it. | University of Lucknow"
 const favIcon = import.meta.env.PUBLIC_FAV_ICON ?? "/favicon.ico"
 const socialMediaImg = import.meta.env.PUBLIC_SOCIAL_MEDIA_IMAGE ?? "/images/banner-filled.png"
-const url = import.meta.env.PUBLIC_URL ?? "https://moddingcommunity.com"
-const desc = descMeta ?? import.meta.env.PUBLIC_DESCRIPTION ?? "A welcoming and inclusive modding and game development community. We currently offer a server browser, blog and forum, with plans to launch a mod workshop and more in the future!"
+const url = import.meta.env.PUBLIC_URL ?? "http://localhost:4321"
+const desc = descMeta ?? import.meta.env.PUBLIC_DESCRIPTION ?? "Join the creative revolution at University of Lucknow. A community where filmmakers, photographers, and storytellers collaborate to bring ideas to life."
 ---
 
 <!doctype html>
@@ -68,7 +68,6 @@ const desc = descMeta ?? import.meta.env.PUBLIC_DESCRIPTION ?? "A welcoming and 
 		<meta name="twitter:description" content={desc}>
 		<meta name="twitter:image" content={url + socialMediaImg}>
 		<meta name="twitter:url" content={url}>
-		<meta name="twitter:site" content="@modcommunity_">
 
 		{(paSrc && paDomain) && (
             <PlausibleAnalytics

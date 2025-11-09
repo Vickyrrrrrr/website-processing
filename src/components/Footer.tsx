@@ -1,77 +1,67 @@
 "use client"
 
-import FooterFollowUs from "./footer/FollowUs";
-import FollowUs from "./footer/FollowUs";
-
 export default function Footer() {
     return (
-        <footer className="relative z-40 bg-footer">
-            <div className="container mx-auto">
-                <div>
-                    <div className="flex flex-col w-full">
-                        <section className="px-2 py-10">
-                            <div className="flex flex-wrap sm:flex-nowrap justify-center sm:justify-between items-center">
-                                <div>
-                                    <span className="text-sm">Taking modding to the next level!</span>
-                                </div>
-                                <FooterFollowUs />
+        <footer className="relative z-40 bg-gray-900 text-white">
+            <div className="container mx-auto px-4">
+                <div className="py-16">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+                        {/* Brand Section */}
+                        <div className="md:col-span-2">
+                            <div className="flex items-center gap-2 mb-4">
+                                <span className="text-2xl">🎬</span>
+                                <span className="font-bold text-xl">Create</span>
                             </div>
-                        </section>
-                        <hr className="border-border-secondary"/>
-                        <section className="px-2 py-10">
-                            <div className="flex flex-col sm:flex-row gap-x-5 gap-y-5 items-center [&_>*]:w-1/3">
-                                <div className="flex flex-col gap-2">
-                                    <h5>Applications</h5>
-                                    <div className="flex flex-col gap-1">
-                                        <a href="/apps">
-                                            <span className="text-sm">Browse</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="flex items-center sm:justify-center">
-                                    <div className="flex flex-col gap-2">
-                                        <h5>Servers</h5>
-                                        <div className="flex flex-col gap-1">
-                                            <a href="/servers">
-                                                <span className="text-sm">Browse</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <p className="text-gray-400 max-w-md">
+                                Transform your creative ideas into reality. Join the University of Lucknow's premier community for filmmakers, photographers, and storytellers.
+                            </p>
+                        </div>
 
-                                <div className="flex items-center sm:justify-end">
-                                    <div className="flex flex-col gap-2">
-                                        <h5>Community</h5>
-                                        <div className="flex flex-col gap-2 text-sm">
-                                            <a href="https://blog.moddingcommunity.com">
-                                                <span>Blog</span>
-                                            </a>
-                                    
-                                            <a href="https://forum.moddingcommunity.com">
-                                                <span>Forum</span>
-                                            </a>
-                                            <a href="https://discord.moddingcommunity.com" target="_blank">
-                                                <span>Discord</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <hr className="border-border-secondary" />
-                        <section className="px-2 py-10">
-                            <div className="flex gap-4 items-center">
-                                <a href="/tos">
-                                    <span className="text-sm">Terms of Service</span>
+                        {/* Community Links */}
+                        <div>
+                            <h5 className="font-bold text-sm uppercase tracking-wide mb-4">Community</h5>
+                            <div className="flex flex-col gap-3">
+                                <a href="#features" className="text-gray-400 hover:text-white transition-colors">
+                                    Features
                                 </a>
-                                <a href="/privacy-policy">
-                                    <span className="text-sm">Privacy Policy</span>
+                                <a href="#form" className="text-gray-400 hover:text-white transition-colors">
+                                    Join Us
                                 </a>
-                                <a href="/licenses">
-                                    <span className="text-sm">Licenses</span>
+                                <a href="#faq" className="text-gray-400 hover:text-white transition-colors">
+                                    FAQ
                                 </a>
                             </div>
-                        </section>
+                        </div>
+
+                        {/* Contact */}
+                        <div>
+                            <h5 className="font-bold text-sm uppercase tracking-wide mb-4">Connect</h5>
+                            <div className="flex flex-col gap-3">
+                                <p className="text-gray-400">
+                                    University of Lucknow
+                                </p>
+                                <p className="text-gray-400 text-sm">
+                                    Student Initiative
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="border-t border-gray-800 py-6">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p className="text-gray-400 text-sm">
+                            © 2025 Creative Community. All rights reserved.
+                        </p>
+                        <div className="flex gap-6 text-sm">
+                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                Privacy
+                            </a>
+                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                Terms
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
